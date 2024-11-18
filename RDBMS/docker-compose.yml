@@ -65,7 +65,7 @@ services:
     networks:
       - rdms
     ports:
-      - 8080:8080
+      - "3080:8080"
 
   pgadmin:
     # See: https://hub.docker.com/r/dpage/pgadmin4
@@ -78,8 +78,8 @@ services:
     networks:
       - rdms
     ports:
-      - "9080:80"
-      - "9443:443"
+      - "3081:80"
+      - "3443:443"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
@@ -93,7 +93,7 @@ services:
     networks:
       - rdms
     ports:
-      - "8081:80"
+      - "3082:80"
 
 networks:
   rdms:
