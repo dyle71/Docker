@@ -13,7 +13,7 @@ entrypoints:
     address: ":443"
 
 log:
-  level: TRACE
+  level: DEBUG
 
 metrics:
   addInternals: true
