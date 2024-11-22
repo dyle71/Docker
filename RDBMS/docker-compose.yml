@@ -90,6 +90,7 @@ services:
     restart: unless-stopped
     environment:
       - PMA_ARBITRARY=1
+      - PMA_PMADB="pmadb"
     networks:
       - rdms
     ports:
