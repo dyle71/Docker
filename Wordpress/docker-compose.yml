@@ -18,6 +18,7 @@ services:
       - WORDPRESS_TABLE_PREFIX=wp_
       - WORDPRESS_DEBUG=true
     volumes:
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./html:/var/www/html
     logging:
       driver: "json-file"
@@ -42,25 +43,25 @@ services:
       options:
         max-size: "4m"
 
-#  wordpress__ftp:
-#    image: stilliard/pure-ftpd:latest
-#    restart: unless-stopped
-#    container_name: wordpress__ftp
-#    environment:
-#      - PUBLICHOST=wordpress__ftp
-#      - FTP_USER_NAME=ftp_wp_user
-#      - FTP_USER_PASS=Aib0nahd
-#      - FTP_USER_HOME=/var/www/html
-#      - FTP_USER_UID=33
-#      - FTP_USER_GID=33
-#    volumes:
-#      - ./html:/var/www/html
-#      - ./ftp:/etc/ssl/private
-#    ports:
-#      - "21:21"
-#      - "30000-30009:30000-30009"
-#    networks:
-#      - wordpress
+  wordpress__ftp:
+    image: stilliard/pure-ftpd:latest
+    restart: unless-stopped
+    container_name: wordpress__ftp
+    environment:
+      - PUBLICHOST=wordpress__ftp
+      - FTP_USER_NAME=ftp_wp_user
+      - FTP_USER_PASS=Aib0nahd
+      - FTP_USER_HOME=/var/www/html
+      - FTP_USER_UID=33
+      - FTP_USER_GID=33
+    volumes:
+      - ./html:/var/www/html
+      - ./ftp:/etc/ssl/private
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    networks:
+      - wordpress
 
   wordpress__adminer:
     image: adminer
