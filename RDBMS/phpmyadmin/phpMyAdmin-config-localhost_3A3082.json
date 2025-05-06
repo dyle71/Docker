@@ -2,12 +2,9 @@
     "FirstLevelNavigationItems": 1000,
     "MaxNavigationItems": 1000,
     "NavigationWidth": 299,
+    "PDFDefaultPageSize": "A3",
     "Console\/DarkTheme": true,
     "Console\/Mode": "collapse",
-    "FirstDayOfCalendar": 1,
-    "DefaultTransformations\/Hex": [
-        "2"
-    ],
     "DefaultTransformations\/Substring": [
         "0",
         "all",
@@ -19,19 +16,27 @@
         "1",
         "1"
     ],
+    "DefaultTransformations\/Hex": [
+        "2"
+    ],
     "DefaultTransformations\/DateFormat": [
         "0",
+        "local",
         "local"
     ],
-    "DefaultTransformations\/Inline": [
-        "100",
-        "100"
-    ],
+    "DefaultTransformations\/Inline": {
+        "0": "100",
+        "1": "100",
+        "wrapper_link": null,
+        "wrapper_params": []
+    },
     "DefaultTransformations\/TextImageLink": [
         "100",
-        "50"
+        "50",
+        50
     ],
-    "PDFDefaultPageSize": "A3",
+    "FirstDayOfCalendar": 1,
+    "RetainQueryBox": true,
     "Server\/hide_db": "",
     "Server\/only_db": "",
     "2fa": {
