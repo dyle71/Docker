@@ -1,0 +1,43 @@
+{
+    "FirstLevelNavigationItems": 1000,
+    "MaxNavigationItems": 1000,
+    "NavigationWidth": 299,
+    "Console\/DarkTheme": true,
+    "Console\/Mode": "collapse",
+    "FirstDayOfCalendar": 1,
+    "DefaultTransformations\/Hex": [
+        "2"
+    ],
+    "DefaultTransformations\/Substring": [
+        "0",
+        "all",
+        "\u2026"
+    ],
+    "DefaultTransformations\/External": [
+        "0",
+        "-f \/dev\/null -i -wrap -q",
+        "1",
+        "1"
+    ],
+    "DefaultTransformations\/DateFormat": [
+        "0",
+        "local"
+    ],
+    "DefaultTransformations\/Inline": [
+        "100",
+        "100"
+    ],
+    "DefaultTransformations\/TextImageLink": [
+        "100",
+        "50"
+    ],
+    "PDFDefaultPageSize": "A3",
+    "Server\/hide_db": "",
+    "Server\/only_db": "",
+    "2fa": {
+        "backend": "",
+        "settings": [],
+        "type": "db"
+    },
+    "ThemeDefault": "boodark"
+}
