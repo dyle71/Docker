@@ -1,0 +1,27 @@
+services:
+  opa:
+    image: openpolicyagent/opa:latest
+    container_name: opa
+    ports:
+      - "8181:8181"
+    command:
+      - "run"
+      - "--server"
+      - "--log-level=debug"
+      - "--watch"
+    volumes:
+      - policies:/policies:ro
+    working_dir: /policies
+    labels:
+      - "traefik.http.routers.opa.rule=Host(`opa.localhost`)"
+      - "traefik.http.routers.opa.tls=true"
+      - "traefik.http.routers.service=opa"
+      - "traefik.http.services.opa.loadbalancer.server.port=8181"
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
+
+volumes:
+  policies:
