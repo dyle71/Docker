@@ -11,10 +11,14 @@ services:
       - "--log-level=debug"
       - "--log-format=text"
       - "--watch"
+      - "--config-file=/config/opa.yaml"
       - "/policies"
     volumes:
       - ./policies:/policies:ro
+      - ./config:/config:ro
     working_dir: /policies
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     labels:
       - "traefik.http.routers.opa.rule=Host(`opa.localhost`)"
       - "traefik.http.routers.opa.tls=true"
@@ -25,6 +29,3 @@ services:
 networks:
   traefik:
     external: true
-
-#volumes:
-#  policies:
