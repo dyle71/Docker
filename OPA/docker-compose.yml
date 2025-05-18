@@ -7,8 +7,11 @@ services:
     command:
       - "run"
       - "--server"
+      - "--addr=0.0.0.0:8181"
       - "--log-level=debug"
+      - "--log-format=text"
       - "--watch"
+      - "/policies"
     volumes:
       - ./policies:/policies:ro
     working_dir: /policies
@@ -23,5 +26,5 @@ networks:
   traefik:
     external: true
 
-volumes:
-  policies:
+#volumes:
+#  policies:
