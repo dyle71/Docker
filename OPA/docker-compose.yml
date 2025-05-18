@@ -10,7 +10,7 @@ services:
       - "--log-level=debug"
       - "--watch"
     volumes:
-      - policies:/policies:ro
+      - ./policies:/policies:ro
     working_dir: /policies
     labels:
       - "traefik.http.routers.opa.rule=Host(`opa.localhost`)"
