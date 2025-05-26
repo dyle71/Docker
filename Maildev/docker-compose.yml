@@ -1,0 +1,29 @@
+services:
+
+  maildev-init:
+    image: alpine
+    container_name: maildev-init
+    volumes:
+      - maildev-data:/data
+    command: ["sh", "-c", "adduser -D -u 1000 maildev && chown -R maildev:maildev /data"]
+    restart: "no"
+    
+  maildev:
+    image: maildev/maildev
+    container_name: maildev
+    depends_on:
+      maildev-init:
+        condition: service_completed_successfully
+    restart: no
+    volumes:
+      - maildev-data:/data
+    environment:
+      - MAILDEV_MAIL_DIRECTORY=/data
+      - MAILDEV_INCOMING_USERNAME=maildev
+      - MAILDEV_INCOMING_PASSWORD=maildevBuzzword
+    ports:
+      - 1025:1025
+      - 1080:1080
+
+volumes:
+  maildev-data:
