@@ -1,0 +1,13 @@
+services:
+  docker-cleanup:
+    image: docker:cli
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: /bin/sh
+    command: >
+      -c "while true; do
+        echo '[CLEANUP] Removing exited containers...';
+        docker ps -a -f status=exited -q | xargs -r docker rm;
+        sleep 300;
+      done"
